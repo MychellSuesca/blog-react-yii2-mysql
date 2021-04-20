@@ -1,0 +1,47 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    ServerSignature Off
+    Header set alt-svc "clear"
+    #Header set Cache-Control "no-store, no-cache, max-age=0, must-revalidate, post-check=0, pre-check=0"
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate" 
+    Header set Expires "jue, 1 Jan 1970 00:00:00 GMT"
+    #Header set content-encoding "gzip"
+    #Header set Content-Security-Policy "default-src 'self' wss://localhost:3030 wss://prebanco.col.ind.local:3030 wss://coldesphp7.col.ind.local:3030 wss://coldes2php7.col.ind.local:3030 https://sockjs-eu.pusher.com; media-src 'self'; img-src 'self'; frame-ancestors 'self'; script-src 'self' data: blob: https: 'nonce-EDNnf03nceIOfn39fn3e9h3sdfa'; style-src 'self'; font-src 'self'
+    #Header set expires "Mon, 01 Jan 1990 00:00:00 GMT"
+    Header set server "GSE"
+    Header set x-content-type-options "nosniff"
+    Header set x-dns-prefetch-control "off"
+    Header set X-Frame-Options "DENY"
+    Header set x-xss-protection "1; mode=block"
+    #Header edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=strict
+    Header edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=strict
+    #Header add Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    Header unset X-Powered-By
+	Header set pragma "no-cache"
+    Header unset ETag 
+    Header unset Pragma 
+    Header unset Cache-Control  
+    Header unset Last-Modified 
+
+</IfModule>

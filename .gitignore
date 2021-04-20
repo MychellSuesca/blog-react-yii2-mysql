@@ -1,0 +1,66 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+blog-front/node_modules
+blog-front/.pnp
+blog-front/.pnp.js
+
+# testing
+blog-front/coverage
+
+# production
+blog-front/build
+
+# misc
+blog-front/.DS_Store
+blog-front/.env.local
+blog-front/.env.development.local
+blog-front/.env.test.local
+blog-front/.env.production.local
+
+blog-front/npm-debug.log*
+blog-front/yarn-debug.log*
+blog-front/yarn-error.log*
+
+
+storage/yii/*
+!storage/yii/noTocar.txt
+
+# phpstorm project files
+blog-back/.idea
+
+# netbeans project files
+blog-back/nbproject
+
+# zend studio for eclipse project files
+blog-back/.buildpath
+blog-back/.project
+blog-back/.settings
+
+# windows thumbnail cache
+blog-back/Thumbs.db
+
+# composer vendor dir
+#/vendor
+
+# composer itself is not needed
+blog-back/composer.phar
+
+#sftp
+blog-back/sftp-config.json
+
+# Mac DS_Store Files
+blog-back/.DS_Store
+
+tests/_output/*
+tests/_support/_generated
+
+#vagrant folder
+/.vagrant
+
+.phpintel
+
+blog-back/runtime/*
+!blog-back/runtime/.htaccess
+
+block-back/vendor/*
