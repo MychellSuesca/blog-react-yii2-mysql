@@ -64,7 +64,7 @@ npm start
 
 #### Ingreso con Usuario de Aministrador
 
-- Al registrarme todos los usuarios siempre tienen por defecto el tipo de usuario: Usuario, para ingresar y modificar los usuarios creados ingresar con el siguiente usuario por defecto
+- Al registrarme todos los usuarios siempre se guardan como un usuario por defecto, para ingresar y modificar los usuarios creados ingresar con el siguiente usuario Adminsitrador
 
 Email: `root@root.com`
 Password: `123456`

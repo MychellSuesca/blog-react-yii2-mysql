@@ -10,9 +10,9 @@ import {
 } from 'reactstrap';
 import * as actions from '../store/actions';
 
-const isAdmin = JSON.parse(window.localStorage.getItem("is_admin"));
 
 const Header = (props) => {
+  let isAdmin = JSON.parse(window.localStorage.getItem("is_admin"));
   const handleLogout = (e) => {
       e.preventDefault();
       props.dispatch(actions.authLogout());

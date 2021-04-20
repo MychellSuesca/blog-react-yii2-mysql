@@ -40,7 +40,7 @@ class LoginController extends RestController
 
         return [
             "token" => $data->generateJwtToken(),
-            "isAdmin" => ($data->tipo_usuario ? true : false),
+            "isAdmin" => (($data->tipo_usuario['value'] == 1) ? true : false),
             "user" => $data->id,
         ];
     }
