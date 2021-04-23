@@ -272,6 +272,7 @@ const Articles = () => {
                                 <th>Contenido</th>
                                 <th>Categoria</th>
                                 <th>Imagen</th>
+                                <th>Likes</th>
                                 <th>Fecha de Creación</th>
                                 <th>Fecha de Actualización</th>
                                 <th colSpan="2">Acciones</th>
@@ -285,6 +286,7 @@ const Articles = () => {
                                         <td>{article.texto_largo}</td>
                                         <td>{article.cat_id?.label}</td>
                                         <td>{article.imagen}</td>
+                                        <td>{article.likes}</td>
                                         <td>{article.fecha_creacion}</td>
                                         <td>{article.fecha_actualizacion}</td>
                                         <td>

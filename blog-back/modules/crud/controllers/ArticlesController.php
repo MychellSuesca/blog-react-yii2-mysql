@@ -3,6 +3,7 @@
 namespace app\modules\crud\controllers;
 
 use app\components\RestController;
+use app\modules\crud\models\Likes;
 use \yii\web\HttpException;
 use Yii;
 
@@ -25,6 +26,26 @@ class ArticlesController extends RestController
         $model = new $this->searchModel;
         $requestParams = Yii::$app->getRequest()->getQueryParams();
         return $model->search($requestParams);
+    }
+
+    /**
+    * Save Like
+    * @param int $idArticulo
+    * @param int $idUsuario
+    */
+    public function actionLike($idArticulo, $idUsuario)
+    {
+        $model = Likes::find()->where(['id_articulo' => $idArticulo, 'id_usuario' => $idUsuario])->one();
+        if(!$model){
+            $model = new Likes();
+            $model->id_articulo = $idArticulo;
+            $model->id_usuario = $idUsuario;
+            if(!$model->save()){
+               throw new \app\exceptions\HttpSaveException($model); 
+            }
+        }else{
+            $model->delete();
+        }
     }
 
     /**

@@ -60,6 +60,11 @@ class m210420_134816_mainTables extends Migration
         foreach ($usuarios as $usuario) {
             $this->insert('usuarios', $usuario);
         }
+
+        $this->createTable('likes', array(
+            "id_articulo" => "INT",
+            "id_usuario" => "INT",
+        ));
     }
 
     /**

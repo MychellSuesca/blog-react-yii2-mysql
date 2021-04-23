@@ -5,6 +5,7 @@ namespace app\modules\crud\models;
 class Articulos extends \app\modules\crud\models\base\ArticulosBase
 {
 	public $cat_id;
+    public $likes;
     
     /**
      * This function after find records to format rows
@@ -15,6 +16,9 @@ class Articulos extends \app\modules\crud\models\base\ArticulosBase
         if($categorias){
             $this->cat_id = ["value" => $categorias->id, "label" => $categorias->categoria];
         }
+
+        $this->likes = Likes::find()->where(['id_articulo' => $this->id])->count();
+
         return parent::afterFind();
     }
 
@@ -22,6 +26,7 @@ class Articulos extends \app\modules\crud\models\base\ArticulosBase
     {
         $fields = parent::fields();
         $fields[] = 'cat_id';
+        $fields[] = 'likes';
         return $fields;
     }
 }

@@ -42,6 +42,7 @@ return [
         [
             'GET ' => 'index',
             'POST save/<id>' => 'save',
+            'POST like/<idArticulo>/<idUsuario>' => 'like',
             'DELETE delete/<id>' => 'delete',
         ],
     ],
